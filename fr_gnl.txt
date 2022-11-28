@@ -1,0 +1,53 @@
+get_next_line :
+
+Une fonction qui prend un descripteur de fichier et renvoie une seule ligne de texte dans le fichier qui se termine par une nouvelle ligne.
+Un programme qui renvoie simplement une seule ligne d'un fichier lu. Fonction permettant au système d'ouvrir un fichier, de lire une certaine taille, de séparer les sauts de ligne et d'afficher le contenu du fichier.
+
+fonction de lecture :
+
+En-tête : unistd.h
+Tapez : ssize_t read ( int  fd,  void  *buf, size_t nbytes)
+Argument :  int  fd Descripteur de fichier void  *buf Buffer pour lire le fichier size_t nbytes Taille du buffer
+Renvoie : Si le fichier a été lu normalement : le nombre d'octets lus Si la
+lecture du fichier a échoué : -1 Si
+le fichier a été lu jusqu'à la fin : 0 (renvoie 0 s'il n'y a plus d'octets à lire. Cela signifie EOF (End of dossier))
+
+Notion de tampon :
+
+Une variable tampon est utilisée comme espace temporaire à utiliser lors de la lecture d'un fichier.
+Un tampon estun périphérique de stockage à grande vitesse qui stocke temporairement les informations à transmettre pour résoudre la différence de vitesse de transmission entre la mémoire principale de l'ordinateur et les périphériques lors de l'échange de données  .
+La capacité du tampon étant limitée, un phénomène de débordement peut se produire.
+Les fonctions d'E/S standard (scanf, printf, etc.) utilisent des tampons.
+
+notion de décalage :
+
+Vous devez comprendre le décalage par rapport à la fonction de lecture.
+Si read(fd, buf, buffsize) est exécuté, offset est augmenté autant que les données sont lues.
+Si vous essayez de lire à nouveau le fichier, il est lu à partir de la  dernière position de fichier lu .
+La fonction de lecture lit automatiquement à partir de la partie déconnectée, car elle stocke la position de lecture (décalage) dans la table des descripteurs de fichier (table FD) .
+Le décalage est attribué de sorte que chaque processus puisse lire différentes parties même s'il se réfère au même i-node en se référant au même FD.
+
+
+Descripteur de fichier (FD) :
+
+Un nombre donné pour faire référence à un fichier ou un socket créé par le système d'exploitation.
+Fondamentalement, les descripteurs de fichiers sont numérotés séquentiellement sous forme d'entiers, et 0, 1 et 2 sont déjà attribués, donc les descripteurs de fichiers sont attribués à partir de 3.
+0 : entrée standard
+1 : Sortie standard
+2 : Erreur type
+La valeur maximale de FD est la valeur de OPEN_MAX.
+Autrement dit, un maximum de fichiers OPEN_MAX peuvent être ouverts par processus, ce qui dépend de la plate-forme.
+Il est défini dans limits.h et la constante OPEN_MAX peut être utilisée comme en-tête supplémentaire, mais le fd réel peut être ouvert plus que cela. → Par conséquent, traiter en utilisant la valeur constante avec
+getconf OPEN_MAX ou ulimit -a / ulimit -Sn Checkable → Check with 256
+
+BUFFER_SIZE est défini par gcc -d lors de la compilation, il n'est donc pas nécessaire de le définir séparément.
+1024 est l'unité la plus efficace, donc le réglage par défaut est 1024 ou omis → omis
+
+Variable statique :
+
+Les variables utilisées dans les fonctions incluent  les variables locales, les variables globales et les variables statiques . Dans cette affectation, il est nécessaire d'utiliser des variables statiques.
+get_next_line doit lire un fichier en unités de taille de tampon et allouer dynamiquement une chaîne correspondant à une ligne. (Alloué dynamiquement car nous ne savons pas combien de temps dure une ligne)
+Il est nécessaire de conserver la chaîne jusqu'à ce qu'une ligne soit terminée, et la chaîne après le caractère de saut de ligne '\n' doit également être enregistrée.
+Par conséquent, nous utilisons des variables statiques pour contenir des valeurs à l'intérieur des fonctions. Etant donné qu'elle est enregistrée dans la zone de données et qu'elle y reste jusqu'à la fin du programme, l'adresse de début pour lire la ligne suivante peut être enregistrée en continu.
+Si le traitement ci-dessus est effectué par descripteur de fichier, une variable de tableau de pointeurs doit être déclarée pour gérer OPEN_MAX.
+profil

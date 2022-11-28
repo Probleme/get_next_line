@@ -1,0 +1,52 @@
+get_next_line :
+
+A function that takes a file descriptor and returns a single line of text in the file that ends with a newline.
+A program that simply returns a single line from a file read. A function that the system opens a file, reads a certain size, separates newlines, and outputs the contents of the file.
+
+read function :
+
+Header: unistd.h
+Type: ssize_t read ( int  fd,  void  *buf, size_t nbytes)
+Argument:  int  fd File descriptor void  *buf Buffer to read file size_t nbytes Size of buffer
+Returns: If the file was read normally: the number of bytes read If the
+file reading failed: -1 If
+the file was read to the end: 0 (returns 0 if there are no more bytes to read. It means EOF (End of file))
+
+Buffer concept :
+
+A buffer variable is used as a temporary space to be used when reading a file.
+A buffer is a high-speed storage device that temporarily stores information to be transmitted to resolve the difference in transmission speed between the computer's main memory and peripheral devices when exchanging data  .
+Since the capacity of the buffer is limited, an overflow phenomenon may occur.
+Standard I/O functions (scanf, printf, etc.) use buffers.
+
+offset concept :
+
+You need to understand the offset in relation to the read function  .
+If read(fd, buf, buffsize) is executed, offset is increased as much as data is read.
+If you try to read the file again, it is read from the  last read file position .
+The read function automatically reads from the disconnected part straight through, because  it stores the read position (offset) in  the file descriptor table (FD Table) .
+Offset is assigned so that each process can read different parts even if it refers to the same i-node by referring to the same FD.
+
+
+File descriptor (FD) :
+
+A number given to conveniently refer to a file or socket created by the operating system.
+Basically, file descriptors are numbered sequentially as integers, and 0, 1, and 2 are already allocated, so file descriptors are assigned from 3.
+0 : Standard Input
+1 : Standard Output
+2 : Standard Error
+The maximum value of FD is the value of OPEN_MAX.
+That is, a maximum of OPEN_MAX files can be opened per process, which is platform dependent.
+It is defined in limits.h, and the OPEN_MAX constant can be used as an additional header, but the actual fd can be opened more than that. → Therefore, process using the constant value with
+getconf OPEN_MAX or ulimit -a / ulimit -Sn Checkable → Check with 256
+
+BUFFER_SIZE is set by gcc -d when compiling, so there is no need to set it separately.
+1024 is the most effective unit, so the default setting is 1024 or omitted → omitted
+
+Static Variable :
+
+Variables used within functions include  local variables, global variables, and static variables . In this assignment, it is necessary to use static variables.
+get_next_line should read a file in units of buffer size and dynamically allocate a string corresponding to one line. (Dynamically allocated because we don't know how long a line is)
+It is necessary to keep the string until one line is completed, and the string after the newline character '\n' must also be saved.
+Therefore, we use static variables to hold values ​​inside functions. Since it is saved in the data area and remains until the end of the program, the start address to read the next line can be stored continuously.
+If the above process is performed per file descriptor, a pointer array variable must be declared to manage OPEN_MAX.
