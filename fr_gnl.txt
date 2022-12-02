@@ -12,7 +12,7 @@ Renvoie : Si le fichier a été lu normalement : le nombre d'octets lus Si la
 lecture du fichier a échoué : -1 Si
 le fichier a été lu jusqu'à la fin : 0 (renvoie 0 s'il n'y a plus d'octets à lire. Cela signifie EOF (End of dossier))
 
-Notion de tampon :
+Notion de tampon :(buffer)
 
 Une variable tampon est utilisée comme espace temporaire à utiliser lors de la lecture d'un fichier.
 Un tampon estun périphérique de stockage à grande vitesse qui stocke temporairement les informations à transmettre pour résoudre la différence de vitesse de transmission entre la mémoire principale de l'ordinateur et les périphériques lors de l'échange de données  .
@@ -50,4 +50,3 @@ get_next_line doit lire un fichier en unités de taille de tampon et allouer dyn
 Il est nécessaire de conserver la chaîne jusqu'à ce qu'une ligne soit terminée, et la chaîne après le caractère de saut de ligne '\n' doit également être enregistrée.
 Par conséquent, nous utilisons des variables statiques pour contenir des valeurs à l'intérieur des fonctions. Etant donné qu'elle est enregistrée dans la zone de données et qu'elle y reste jusqu'à la fin du programme, l'adresse de début pour lire la ligne suivante peut être enregistrée en continu.
 Si le traitement ci-dessus est effectué par descripteur de fichier, une variable de tableau de pointeurs doit être déclarée pour gérer OPEN_MAX.
-profil

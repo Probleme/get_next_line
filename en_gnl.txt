@@ -8,9 +8,9 @@ read function :
 Header: unistd.h
 Type: ssize_t read ( int  fd,  void  *buf, size_t nbytes)
 Argument:  int  fd File descriptor void  *buf Buffer to read file size_t nbytes Size of buffer
-Returns: If the file was read normally: the number of bytes read If the
-file reading failed: -1 If
-the file was read to the end: 0 (returns 0 if there are no more bytes to read. It means EOF (End of file))
+Returns: If the file was read normally: the number of bytes read 
+If the file reading failed: -1 
+If the file was read to the end: 0 (returns 0 if there are no more bytes to read. It means EOF (End of file))
 
 Buffer concept :
 

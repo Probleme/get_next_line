@@ -1,0 +1,11 @@
+static variabe :
+
+Les variables statiques ont la propriété de conserver leur valeur même après qu'elles soient hors de leur portée .
+Par conséquent, les variables statiques conservent leur valeur précédente dans leur portée précédente et ne sont pas réinitialisées dans la nouvelle portée
+
+Une variable int statique reste en mémoire pendant l'exécution du programme. Une variable normale ou auto est détruite lorsqu'un appel de fonction où la variable a été déclarée est terminé.
+
+Les variables statiques sont initialisées à 0 si elles ne sont pas initialisées explicitement. 
+Par exemple, dans le programme ci-dessous, la valeur de x est imprimée sous la forme 0, tandis que la valeur de y est quelque chose d'inutile
+exemple : x = 0 . y = garbage_value
+
