@@ -1,3 +1,12 @@
+get_next_line ?
+howa wahed lprojet li kitleb menna nketbou wahed lfonction li katrejje3 lia wahed star kat9rah men fd .
+
+return value ?
+ila daz koulshi meziane ghatrejja3 lia star li 9raat .
+ila mlqate matqra men l fichier 
+
+
+
 static variabe :
 
 Les variables statiques ont la propriété de conserver leur valeur même après qu'elles soient hors de leur portée .

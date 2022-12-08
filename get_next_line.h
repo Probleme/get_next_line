@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:43:40 by ataouaf           #+#    #+#             */
-/*   Updated: 2022/12/02 23:02:08 by ataouaf          ###   ########.fr       */
+/*   Updated: 2022/12/08 04:18:42 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-// # ifndef BUFFER_SIZE
-// #  define BUFFER_SIZE 42
-// # endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 
 char	*get_next_line(int fd);
 char	*ft_read_and_save(int fd, char *save);

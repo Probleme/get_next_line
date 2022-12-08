@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 22:36:12 by ataouaf           #+#    #+#             */
-/*   Updated: 2022/12/02 22:46:45 by ataouaf          ###   ########.fr       */
+/*   Updated: 2022/12/07 19:52:55 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,8 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	i = -1;
 	c = 0;
-	if (s1)
-		while (s1[++i] != '\0')
-			str[i] = s1[i];
+	while (s1[++i] != '\0')
+		str[i] = s1[i];
 	while (s2[c] != '\0')
 		str[i++] = s2[c++];
 	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';

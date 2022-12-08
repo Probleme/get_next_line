@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:43:46 by ataouaf           #+#    #+#             */
-/*   Updated: 2022/12/02 23:02:46 by ataouaf          ###   ########.fr       */
+/*   Updated: 2022/12/08 04:30:33 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	*ft_get_line(char *save)
 	line[i] = '\0';
 	return (line);
 }
-// fonction qui renvoie une seule ligne
 
 char	*ft_save(char *save)
 {
@@ -52,7 +51,7 @@ char	*ft_save(char *save)
 		free(save);
 		return (NULL);
 	}
-	new_save = (char *)malloc(sizeof(*new_save) * (ft_strlen(save) - i + 1));
+	new_save = (char *)malloc(sizeof(char) * (ft_strlen(save) - i + 1));
 	if (!new_save)
 	{
 		free(new_save);
@@ -66,7 +65,6 @@ char	*ft_save(char *save)
 	free(save);
 	return (new_save);
 }
-// Supprime jusqu'à une ligne lue et renvoie une nouvelle chaîne
 
 char	*ft_read_and_save(int fd, char *save)
 {
@@ -92,7 +90,6 @@ char	*ft_read_and_save(int fd, char *save)
 	free(buffer);
 	return (save);
 }
-// fonction qui lit et stocke
 
 char	*get_next_line(int fd)
 {
@@ -100,7 +97,7 @@ char	*get_next_line(int fd)
 	static char	*save;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
+		return (NULL);
 	save = ft_read_and_save(fd, save);
 	if (!save)
 		return (NULL);
@@ -108,26 +105,37 @@ char	*get_next_line(int fd)
 	save = ft_save(save);
 	return (line);
 }
-// #include <fcntl.h>
+// #include <unistd.h>
 // #include <stdio.h>
+// #include <fcntl.h>
 // int	main(void)
 // {
 // 	int		fd;
 // 	char	*line;
-// 	fd = open("read_error.txt", O_RDONLY);
-// 	line = get_next_line(fd);
-// 	printf("%s",line);
-// 	free(line);
-// 	line = get_next_line(fd);
-// 	printf("%s",line);
-// 	free(line);
-// 	line = get_next_line(fd);
-// 	printf("%s",line);
-// 	free(line);
 
-// 	// printf("%s", line);
-// 	// free(line);
-// 	// close(fd);
-// 	while(1)
-// 	{}
+// 	fd = open("test.txt", O_RDONLY);
+// 	line = get_next_line(fd);
+// 	printf("%s",line);
+// 	free(line);
+// 	line = get_next_line(fd);
+// 	printf("%s",line);
+// 	free(line);
+// 	line = get_next_line(fd);
+// 	printf("%s",line);
+// 	free(line);
+// 	line = get_next_line(fd);
+// 	printf("%s",line);
+// 	free(line);
+// 	line = get_next_line(fd);
+// 	printf("%s",line);
+// 	free(line);
+// 	line = get_next_line(fd);
+// 	printf("%s",line);
+// 	free(line);
+// 	// while ((line = get_next_line(fd)) != NULL)
+// 	// {
+// 	// 	printf("%s", line);
+// 	// 	free(line);
+// 	// }
+// 	close(fd);
 // }

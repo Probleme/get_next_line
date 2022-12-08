@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 22:07:03 by ataouaf           #+#    #+#             */
-/*   Updated: 2022/12/02 23:02:13 by ataouaf          ###   ########.fr       */
+/*   Updated: 2022/12/04 20:59:53 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
 # include <unistd.h>
+# include <limits.h>
 
-// # ifndef BUFFER_SIZE
-// #  define BUFFER_SIZE 42
-// # endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 char	*get_next_line(int fd);
 char	*ft_read_and_save(int fd, char *save);
