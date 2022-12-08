@@ -1,10 +1,17 @@
 get_next_line :
 
-A function that takes a file descriptor and returns a single line of text in the file that ends with a newline.
+gnl is a function that take a file descriptor and returns a single line of text in the file that ends with a newline(\n).
 A program that simply returns a single line from a file read. A function that the system opens a file, reads a certain size, separates newlines, and outputs the contents of the file.
+
+goal of this project:
+
+by calling gnl function inside a loop, the text in fd is read one line at time until end of file(EOF) is reached.
+when the gnl is called the first time , the size of specify buffer is very large, so even if the file is read to the end at once,
+when the gnl is called the second time, it must start reading from the second line.
 
 read function :
 
+the read function is a low-level input function that reads data from a file descriptor. it reads a specified number of bytes from the file into a buffer, which is a block of memory where the data is stored temporarily.
 Header: unistd.h
 Type: ssize_t read ( int  fd,  void  *buf, size_t nbytes)
 Argument:  int  fd File descriptor void  *buf Buffer to read file size_t nbytes Size of buffer
@@ -30,6 +37,8 @@ Offset is assigned so that each process can read different parts even if it refe
 
 File descriptor (FD) :
 
+A file descriptor is a data typee that refers to an open file or other input/output ressource.
+In c programming language, file descriptors are represented as a small, non negative integers that are used to identify open files.
 A number given to conveniently refer to a file or socket created by the operating system.
 Basically, file descriptors are numbered sequentially as integers, and 0, 1, and 2 are already allocated, so file descriptors are assigned from 3.
 0 : Standard Input
@@ -42,6 +51,12 @@ getconf OPEN_MAX or ulimit -a / ulimit -Sn Checkable → Check with 256
 
 BUFFER_SIZE is set by gcc -d when compiling, so there is no need to set it separately.
 1024 is the most effective unit, so the default setting is 1024 or omitted → omitted
+
+file table entry :
+
+a file table entry is a data structure that is used to keep track of open files in a computer system.
+in c , the file table is typically managed by the standard library and is used to store information about each open file, such as its associated fd, file pointer, and various flags that control how the file can be accessed.
+the file table is important because it allows the system to keep track of wich files are currently being used, and ensure that they are accessed in a safe consistent manner.
 
 Static Variable :
 
@@ -57,3 +72,8 @@ a buffer is a temporary stroage area in computer memory that is use to store dat
 Reasons to use buffers is to improve the performance of input and output operations.
 When the data is read from or written to a file or other source, it is often more efficient store the data in a buffer before processing it, rather than accessing the source directly each time.
 This can reduce the number of times the program has to access the disk or other slow storage device, wich can improve overall performance.
+
+End Of File (EOF) :
+
+the end of file is a condition in a computer operating system where no more data can be read from a data source
+

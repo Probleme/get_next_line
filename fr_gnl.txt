@@ -3,8 +3,15 @@ get_next_line :
 Une fonction qui prend un descripteur de fichier et renvoie une seule ligne de texte dans le fichier qui se termine par une nouvelle ligne.
 Un programme qui renvoie simplement une seule ligne d'un fichier lu. Fonction permettant au système d'ouvrir un fichier, de lire une certaine taille, de séparer les sauts de ligne et d'afficher le contenu du fichier.
 
-fonction de lecture :
+but de ce projet :
 
+en appelant la fonction gnl dans une boucle, le texte dans fd est lu une ligne à la fois jusqu'à ce que la fin du fichier (EOF) soit atteinte.
+lorsque le gnl est appelé la première fois, la taille du tampon spécifié est très grande, donc même si le fichier est lu jusqu'à la fin en une seule fois,
+lorsque le gnl est appelé la deuxième fois, il doit commencer la lecture à partir de la deuxième ligne.
+
+fonction de lecture : (read)
+
+la fonction de lecture est une fonction d'entrée de bas niveau qui lit les données d'un descripteur de fichier. il lit un nombre spécifié d'octets du fichier dans un tampon, qui est un bloc de mémoire où les données sont stockées temporairement.
 En-tête : unistd.h
 Tapez : ssize_t read ( int  fd,  void  *buf, size_t nbytes)
 Argument :  int  fd Descripteur de fichier void  *buf Buffer pour lire le fichier size_t nbytes Taille du buffer
@@ -30,6 +37,8 @@ Le décalage est attribué de sorte que chaque processus puisse lire différente
 
 Descripteur de fichier (FD) :
 
+Un descripteur de fichier est un type de données qui fait référence à un fichier ouvert ou à une autre ressource d'entrée/sortie.
+Dans le langage de programmation c, les descripteurs de fichiers sont représentés par de petits nombres entiers non négatifs qui sont utilisés pour identifier les fichiers ouverts.
 Un nombre donné pour faire référence à un fichier ou un socket créé par le système d'exploitation.
 Fondamentalement, les descripteurs de fichiers sont numérotés séquentiellement sous forme d'entiers, et 0, 1 et 2 sont déjà attribués, donc les descripteurs de fichiers sont attribués à partir de 3.
 0 : entrée standard
@@ -42,6 +51,12 @@ getconf OPEN_MAX ou ulimit -a / ulimit -Sn Checkable → Check with 256
 
 BUFFER_SIZE est défini par gcc -d lors de la compilation, il n'est donc pas nécessaire de le définir séparément.
 1024 est l'unité la plus efficace, donc le réglage par défaut est 1024 ou omis → omis
+
+entrée de table de fichiers :
+
+une entrée de table de fichiers est une structure de données utilisée pour suivre les fichiers ouverts dans un système informatique.
+dans c , la table de fichiers est généralement gérée par la bibliothèque standard et est utilisée pour stocker des informations sur chaque fichier ouvert, telles que son fd associé, son pointeur de fichier et divers indicateurs qui contrôlent l'accès au fichier.
+la table des fichiers est importante car elle permet au système de garder une trace des fichiers en cours d'utilisation et de s'assurer qu'ils sont accessibles de manière sûre et cohérente.
 
 Variable statique :
 
@@ -57,3 +72,8 @@ un tampon est une zone de stockage temporaire dans l'ordinateur qui est utiliser
 la raison d'utiliser un tampon sont d'ameliorer les performances des operations d'entrée et de sortie (input/output).
 lorseque les données sont lues ou ecrite dans un fichier ou une autre source, il souvent plus efficace de stocker les données dans une memoire tampon(buffer) avant de les traiter, plutot aue d'acceder directement a la source a chaque fois.
 cela peur reduire le nombre de fois ou le programme doit acceder au disque ou un autre peripherique de stockage lent, ce aui peut ameliorer les performances globales.
+
+fin de fichier (end of file (EOF)):
+
+la fin du fichier est une condition dans  un system d'exploitation informatique ou plus aucune données ne peut etre lue a partir d'une source de données.
+
