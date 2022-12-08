@@ -50,3 +50,10 @@ get_next_line should read a file in units of buffer size and dynamically allocat
 It is necessary to keep the string until one line is completed, and the string after the newline character '\n' must also be saved.
 Therefore, we use static variables to hold values ​​inside functions. Since it is saved in the data area and remains until the end of the program, the start address to read the next line can be stored continuously.
 If the above process is performed per file descriptor, a pointer array variable must be declared to manage OPEN_MAX.
+
+buffer :
+
+a buffer is a temporary stroage area in computer memory that is use to store data while it is being transferred from one place to another.
+Reasons to use buffers is to improve the performance of input and output operations.
+When the data is read from or written to a file or other source, it is often more efficient store the data in a buffer before processing it, rather than accessing the source directly each time.
+This can reduce the number of times the program has to access the disk or other slow storage device, wich can improve overall performance.

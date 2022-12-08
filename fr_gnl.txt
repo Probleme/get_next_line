@@ -50,3 +50,10 @@ get_next_line doit lire un fichier en unités de taille de tampon et allouer dyn
 Il est nécessaire de conserver la chaîne jusqu'à ce qu'une ligne soit terminée, et la chaîne après le caractère de saut de ligne '\n' doit également être enregistrée.
 Par conséquent, nous utilisons des variables statiques pour contenir des valeurs à l'intérieur des fonctions. Etant donné qu'elle est enregistrée dans la zone de données et qu'elle y reste jusqu'à la fin du programme, l'adresse de début pour lire la ligne suivante peut être enregistrée en continu.
 Si le traitement ci-dessus est effectué par descripteur de fichier, une variable de tableau de pointeurs doit être déclarée pour gérer OPEN_MAX.
+
+tampon (buffer):
+
+un tampon est une zone de stockage temporaire dans l'ordinateur qui est utiliser pour stocker des données pendant leur transfert d'un endroit a un autre.
+la raison d'utiliser un tampon sont d'ameliorer les performances des operations d'entrée et de sortie (input/output).
+lorseque les données sont lues ou ecrite dans un fichier ou une autre source, il souvent plus efficace de stocker les données dans une memoire tampon(buffer) avant de les traiter, plutot aue d'acceder directement a la source a chaque fois.
+cela peur reduire le nombre de fois ou le programme doit acceder au disque ou un autre peripherique de stockage lent, ce aui peut ameliorer les performances globales.
