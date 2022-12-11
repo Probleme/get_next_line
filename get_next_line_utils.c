@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:43:42 by ataouaf           #+#    #+#             */
-/*   Updated: 2022/12/08 04:28:04 by ataouaf          ###   ########.fr       */
+/*   Updated: 2022/12/11 05:59:01 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ char	*ft_strchr(char *s, int c)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	i;
-	size_t	c;
+	int		i;
+	int		c;
 	char	*str;
 
 	if (!s1)

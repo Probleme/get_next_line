@@ -52,6 +52,11 @@ getconf OPEN_MAX or ulimit -a / ulimit -Sn Checkable → Check with 256
 BUFFER_SIZE is set by gcc -d when compiling, so there is no need to set it separately.
 1024 is the most effective unit, so the default setting is 1024 or omitted → omitted
 
+file descriptor table :
+
+a file descriptor table is a data structure used by an operating system to keep track of open files an and other I/O ressources.
+Each entry in the table, known as file descriptor, provides information about an open file, such as it's location on the disk and the current position within the file.
+
 file table entry :
 
 a file table entry is a data structure that is used to keep track of open files in a computer system.
@@ -60,6 +65,7 @@ the file table is important because it allows the system to keep track of wich f
 
 Static Variable :
 
+In c , a static variable is a variable that returns its value between function calls.
 Variables used within functions include  local variables, global variables, and static variables . In this assignment, it is necessary to use static variables.
 get_next_line should read a file in units of buffer size and dynamically allocate a string corresponding to one line. (Dynamically allocated because we don't know how long a line is)
 It is necessary to keep the string until one line is completed, and the string after the newline character '\n' must also be saved.

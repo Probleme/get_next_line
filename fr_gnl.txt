@@ -52,6 +52,11 @@ getconf OPEN_MAX ou ulimit -a / ulimit -Sn Checkable → Check with 256
 BUFFER_SIZE est défini par gcc -d lors de la compilation, il n'est donc pas nécessaire de le définir séparément.
 1024 est l'unité la plus efficace, donc le réglage par défaut est 1024 ou omis → omis
 
+Tableau de descripteurs des fichiers:
+
+une table de descripteurs de fichiers est une structure de données utilisée par un système d'exploitation pour garder une trace des fichiers ouverts et d'autres ressources d'E/S.
+Chaque entrée de la table, connue sous le nom de descripteur de fichier, fournit des informations sur un fichier ouvert, telles que son emplacement sur le disque et la position actuelle dans le fichier.
+
 entrée de table de fichiers :
 
 une entrée de table de fichiers est une structure de données utilisée pour suivre les fichiers ouverts dans un système informatique.
@@ -60,6 +65,7 @@ la table des fichiers est importante car elle permet au système de garder une t
 
 Variable statique :
 
+Une static variable est une variable qui conservent sa valeur entre l'appele de fonction.
 Les variables utilisées dans les fonctions incluent  les variables locales, les variables globales et les variables statiques . Dans cette affectation, il est nécessaire d'utiliser des variables statiques.
 get_next_line doit lire un fichier en unités de taille de tampon et allouer dynamiquement une chaîne correspondant à une ligne. (Alloué dynamiquement car nous ne savons pas combien de temps dure une ligne)
 Il est nécessaire de conserver la chaîne jusqu'à ce qu'une ligne soit terminée, et la chaîne après le caractère de saut de ligne '\n' doit également être enregistrée.
