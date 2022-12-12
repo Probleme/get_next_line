@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:43:46 by ataouaf           #+#    #+#             */
-/*   Updated: 2022/12/11 23:44:13 by ataouaf          ###   ########.fr       */
+/*   Updated: 2022/12/12 01:40:10 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,12 @@ char	*get_next_line(int fd)
 // 	int		fd;
 // 	char	*line;
 
-// 	fd = open("test.txt", O_RDONLY);
+// 	fd = open("test3.txt", O_CREAT | O_RDWR);
+// 	// write(fd,"0123456789\nabcdefgh",19);
+// 	// close(fd);
+// 	line = get_next_line(fd);
+// 	printf("%s", line);
+// 	free(line);
 // 	// line = get_next_line(fd);
 // 	// printf("%s",line);
 // 	// free(line);
@@ -132,10 +137,10 @@ char	*get_next_line(int fd)
 // 	// line = get_next_line(fd);
 // 	// printf("%s",line);
 // 	// free(line);
-// 	while ((line = get_next_line(fd)))
-// 	{
-// 		printf("%s", line);
-// 		free(line);
-// 	}
-// 	close(fd);
+// 	// while ((line = get_next_line(fd)))
+// 	// {
+// 	// 	printf("%s", line);
+// 	// 	free(line);
+// 	// }
+// 	// close(fd);
 // }
