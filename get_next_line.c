@@ -6,11 +6,12 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:43:46 by ataouaf           #+#    #+#             */
-/*   Updated: 2022/12/12 01:40:10 by ataouaf          ###   ########.fr       */
+/*   Updated: 2022/12/13 03:40:53 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 char	*ft_get_line(char *save)
 {
@@ -43,6 +44,7 @@ char	*ft_save(char *save)
 	i = 0;
 	while (save[i] && save[i] != '\n')
 		i++;
+	printf("%d\n", i);
 	if (!save[i])
 	{
 		free(save);
@@ -102,45 +104,30 @@ char	*get_next_line(int fd)
 	save = ft_save(save);
 	return (line);
 }
-// #include <unistd.h>
-// #include <stdio.h>
-// #include <fcntl.h>
+// int	main()
+// {
+// 	int fd;
+// 	char *line;
+// 	fd = open("test.txt", O_RDONLY);
+// 	while((line = get_next_line(fd)))
+// 	{
+// 		printf("%s\n", line);
+// 		free(line);
+// 	}
+// 	close(fd);
+
+
+// 	system("pause");
+// 	return 0;
+// }
+
 // int	main(void)
 // {
-// 	int		fd;
-// 	char	*line;
+// 	int fd;
+// 	char *line;
 
-// 	fd = open("test3.txt", O_CREAT | O_RDWR);
-// 	// write(fd,"0123456789\nabcdefgh",19);
-// 	// close(fd);
+//     fd = open("test.txt", O_RDONLY);
 // 	line = get_next_line(fd);
-// 	printf("%s", line);
-// 	free(line);
-// 	// line = get_next_line(fd);
-// 	// printf("%s",line);
-// 	// free(line);
-// 	// line = get_next_line(fd);
-// 	// printf("%s",line);
-// 	// free(line);
-// 	// line = get_next_line(fd);
-// 	// printf("%s",line);
-// 	// free(line);
-// 	// line = get_next_line(fd);
-// 	// printf("%s",line);
-// 	// free(line);
-// 	// line = get_next_line(fd);
-// 	// printf("%s",line);
-// 	// free(line);
-// 	// line = get_next_line(fd);
-// 	// printf("%s",line);
-// 	// free(line);
-// 	// line = get_next_line(fd);
-// 	// printf("%s",line);
-// 	// free(line);
-// 	// while ((line = get_next_line(fd)))
-// 	// {
-// 	// 	printf("%s", line);
-// 	// 	free(line);
-// 	// }
-// 	// close(fd);
+	
+//     close(fd);
 // }

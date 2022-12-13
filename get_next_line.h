@@ -6,7 +6,7 @@
 /*   By: ataouaf <ataouaf@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 23:43:40 by ataouaf           #+#    #+#             */
-/*   Updated: 2022/12/11 04:31:25 by ataouaf          ###   ########.fr       */
+/*   Updated: 2022/12/12 04:52:45 by ataouaf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+# include <stdio.h>
+# include <fcntl.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
